@@ -71,6 +71,9 @@ int main() {
 
   return 0;
 }
+
+//------------------------------------------------
+
 void map(Input *input, IntermediateInput *intermediate_input) {
   // todo
   // Double the value of the input
