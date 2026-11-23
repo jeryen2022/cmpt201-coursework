@@ -53,7 +53,7 @@ void *handle_client(void *arg) {
       total_message_count++;
       int msg_num = total_message_count;
       pthread_mutex_unlock(&count_mutex);
-      printf("Msg #   %d; Client ID %d: %s", msg_num, client_id, buf);
+      printf("Msg #%4d; Client ID %d: %s", msg_num, client_id, buf);
       fflush(stdout);
     } else if (num_read == 0) {
       printf("Client %d disconnected.\n", client_id);
@@ -122,10 +122,9 @@ int main() {
       continue;
     }
     pthread_detach(thread);
-
-    if (close(sfd) == -1) {
-      handle_error("close");
-    }
+  }
+  if (close(sfd) == -1) {
+    handle_error("close");
   }
   return 0;
 }
